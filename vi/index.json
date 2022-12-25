@@ -1,0 +1,50 @@
+[
+{
+	"uri": "/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan AWS Amplify cung cấp một quy trình làm việc CI/CD dựa trên Git để xây dựng, triển khai và lưu trữ các ứng dụng web single-page hoặc web tĩnh với backends phi máy chủ. Khi kết nối với kho lưu trữ Git, Amplify xác định cài đặt xây dựng cho cả khung giao diện người dùng (frontend framework) và tài nguyên backend phi máy chủ với Amplify CLI, và tự động triển khai các bản cập nhật với mọi code commit.\nCách thức hoạt động AWS Amplify là một giải pháp hoàn chỉnh cho phép các nhà phát triển (developers) giao diện người dùng web và thiết bị di động dễ dàng xây dựng, vận chuyển và lưu trữ các ứng dụng full-stack trên AWS, với tính linh hoạt để tận dụng phạm vi mở rộng của các dịch vụ AWS khi các ứng dụng phát triển. Không cần kiến thức chuyên môn về điện toán đám mây. Các khái niệm chính Ứng dụng React – React là một thư viện ứng dụng web JavaScript cho phép các developers nhanh chóng xây dựng hiệu quả các ứng dụng single-page.\nGit – Một hệ thống kiểm soát phiên bản cho phép developers lưu trữ files và duy trì và cập nhật mối liên hệ giữa các files và thư mục, phiên bản và những thay đổi đối với files.\nĐọc thêm\n"
+},
+{
+	"uri": "/vi/",
+	"title": "Giới thiệu về bài lab này",
+	"tags": [],
+	"description": "",
+	"content": "Về bài lab này Tổng thể Trong bài lab này, chúng ta sẽ tạo một ứng dụng React và triển khai nó lên đám mây bằng cách sử dụng dịch vụ lưu trữ web AWS Amplify.\nLưu ý quan trọng: Nếu tài nguyên bạn sử dụng cho bài lab này không bị xóa, bạn sẽ phải trả phí cho tài khoản AWS của mình. Content Giới thiệu Chuẩn bị Triển khai ứng dụng React lên AWS Amplify Dọn dẹp tài nguyên "
+},
+{
+	"uri": "/vi/2-pre-requisite/",
+	"title": "Chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Kịch bản Trong bài lab này, chúng ta sẽ bắt đầu bằng cách tạo một ứng dụng React mới và khai báo (submitting) nó cho một GitHub repository (repository, viết tắt repo, tạm dịch kho lưu trữ). Kho lưu trữ này sẽ được liên kết với dịch vụ lưu trữ web AWS Amplify và được triển khai tới mạng phân phối nội dung có thể truy cập toàn cầu (CDN, Content Delivery Network) được lưu trữ trên tên miền amplifyapp.com. Sau đó, chúng ta sẽ thể hiện khả năng triển khai liên tục (continuous deployment) bằng cách thực hiện các thay đổi đối với ứng dụng React và đẩy một phiên bản mới cho nhánh chính, phiên bản mới này sẽ tự động bắt đầu một triển khai mới.\nNhững gì bạn sẽ đạt được Ở bài lab này, bạn sẽ: - Xây dựng một ứng dụng React - Tạo một kho lưu trữ GitHub - Dùng AWS Amplify để triển khai ứng dụng của bạn - Thực hiện thay đổi mã (code) và triển khai lại ứng dụng của bạn.\nChuẩn bị Làm lab với trình duyệt Chrome hoặc Firefox.\nTài khoản AWS của bạn.\nTải và cài đặt Visual Studio Code\nTạo tài khoản Github\nCài đặt Git trên máy tính của bạn và thêm SSH keys to your GitHub account.\nTải và cài đặt NodeJS\nTạo một ứng dụng React mới Khởi chạy Visual Studio Code (VSC). Đăng nhập vào VSC bằng tài khoản GitHub của bạn. Chọn New Terminal từ menu Terminal. Dùng câu lệnh (Ứng dụng React mới được gọi là aws-react-hosting): npx create-react-app aws-react-hosting Dự án đã được tạo nên bây giờ chúng ta hãy mở thư mục trong VSC. cd aws-react-hosting Để chạy ứng dụng React, gõ câu lệnh: npm start Nó đã được thiết lập và chạy trên localhost (localhost:3000) Bước tiếp theo là tạo một Github repo mới.\nTạo Github repo mới Đi đến Create a new repository Chúng ta cần đặt tên cho kho lưu trữ này, ta gọi là aws-react-hosting giống như tên thư mục. Nhấn vào Create repository.\nKho lưu trữ GitHub đã được tạo. Đây là một số câu lệnh mà chúng ta có thể sử dụng.\nTải ứng dụng React Native của bạn lên kho lưu trữ Github Quay trở lại VSC. VSC đang điều hướng đến thư mục React (thư mục aws-react-hosting) Hãy thử mở một cửa sổ terminal mới:\n- Để mở cửa sổ terminal mới, nhấn vào + Developer Command Prompt trong cửa sổ terminal.\n- Như chúng ta thấy, VSC có hai cửa sổ terminal: node đang chạy ứng dụng React và bash chúng ta vừa mới tạo. Chúng ta muốn đưa toàn bộ mã cần thiết đang lưu trên máy tính lên Github repo. Để làm vậy, bạn chỉ cần chạy các lệnh:\ngit init\rgit add .\rgit commit -m \u0026#34;added react app\u0026#34;\rgit branch -M main\rgit remote add origin \u0026lt;https://..... git\u0026gt;\rgit push -u origin main URL endpoint \u0026lt;https://\u0026hellip;.. git\u0026gt;: bạn sao chép nó từ GitHub repo của bạn.\nNó sẽ đẩy tất cả các files vào Github repo. Đã xong rồi.\nQuay trở lại Github repo của bạn. Refresh và bạn có thể thấy rằng tất cả các files quan trọng đều đã được tải lên ngoại trừ các node modules . "
+},
+{
+	"uri": "/vi/3-deploy-to-amplify/",
+	"title": "Triển khai ứng dụng React lên AWS Amplify",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai ứng dụng React với AWS Amplify Đi tới bảng điều khiển AWS Amplify, click on the Get started. Chọn Get started Amplify Hosting. Chọn GitHub và nhấn vào Continue. Nhấp vào Installing \u0026amp; Authorizing Nhấp vào Authorize\u0026hellip; Nhập mật khẩu GitHub hoặc mã xác thực của bạn. Chọn repository và nhánh main mà bạn đã tạo trước đó, rồi nhấn Next. Chấp nhận thiết lập mặc định và chọn Next. Xem lại các chi tiết cuối cùng và chọn Save and deploy. AWS Amplify lúc này sẽ xây dựng mã nguồn của bạn và triển khai ứng dụng tại https://...amplifyapp.com. 11. Khi quá trình xây dựng chưa hoàn tất, chọn thumbnail để xem ứng dụng web của bạn được hiển thị như hình bên dưới: 12. Khi quá trình xây dựng đã hoàn tất, nhấp vào URL để xem ứng dụng web được thiết lập, đang chạy trực tiếp (running live). Bạn có thể chia sẻ URL và mọi người sẽ thấy ứng dụng.\nTự động triển khai các thay đổi mã code Kế đến, chúng ta sẽ thực hiện một số thay đổi về nội dung (text) của ứng dụng và xem liệu nó có tự động triển khai những thay đổi đó hay không.\nMở thư mục nguồn của ứng dụng và tìm file App.js.\nỞ dòng 10, chúng ta chỉ đơn giản điều chỉnh thành How to Deploy React App to AWS Amplify?. Lưu lại và kiểm tra localhost của chúng ta. Nó đã đổi.\nGiờ chúng ta muốn đẩy các thay đổi lên repo Github.\ngit add .\rgit commit -m \u0026#34;updated text\u0026#34;\rgit push origin main Vậy là những thay đổi đã được đẩy lên repo Github. Kế đến, chúng ta thấy rằng Amplify tự động bắt đầu một bản dựng mới.\nVào bảng điều khiển Amplify, bạn thấy rằng nó tự động bắt đầu một bản dựng mới: Khi quá trình đã hoàn tất, nhấn vào URL để xem ứng dụng đã cập nhật của chúng ta. "
+},
+{
+	"uri": "/vi/4-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "Để xóa tài nguyên chúng ta đã tạo trong lab này, chúng ta sẽ thực hiện như sau.\nĐến bảng điều khiển AWS Amplify:\nNhấn vào All apps Nhấn vào aws-react-hosting Nhấn vào Actions Nhấn vào Delete app. Nhập delete rồi nhấn Delete.\n"
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

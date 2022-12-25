@@ -1,0 +1,50 @@
+[
+{
+	"uri": "/",
+	"title": "About this lab",
+	"tags": [],
+	"description": "",
+	"content": "About this lab Overall In this lab, we will create a React application and deploy it to the cloud using the AWS Amplify web hosting service.\nImportant: If the resources that you use for this lab are left undeleted, you will incur charges on your AWS account. Content Introduction Pre-requisite Deploy a React app to AWS Amplify Clean up resources "
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Overview AWS Amplify provides a Git-based CI/CD workflow for building, deploying, and hosting single-page web applications or static sites with serverless backends. Upon connecting to a Git repository, Amplify determines the build settings for both the frontend framework and any serverless backend resources configured with the Amplify CLI, and automatically deploys updates with every code commit.\nHow it works AWS Amplify is a complete solution that lets frontend web and mobile developers easily build, ship, and host full-stack applications on AWS, with the flexibility to leverage the breadth of AWS services as use cases evolve. No cloud expertise needed. Key concepts React application – React is a JavaScript web application library that enables developers to quickly build performant single-page applications.\nGit – A version control system that allows developers to store files and maintain and update relationships between files and directories, versions, and changes to the files\nRead more\n"
+},
+{
+	"uri": "/2-pre-requisite/",
+	"title": "Pre-requisite",
+	"tags": [],
+	"description": "",
+	"content": "Scenario In this lab, we\u0026rsquo;ll start by creating a new React application and submitting it to a GitHub repository. The repository will then be linked to AWS Amplify web hosting and deployed to a globally accessible content delivery network (CDN) hosted on an amplifyapp.com domain.\nThen, we\u0026rsquo;ll show off our continuous deployment capabilities by making changes to the React application and pushing a new version to the main branch, which will automatically start a new deployment.\nWhat you will accomplish In this lab, you will: - Build a React application - Create a GitHub repository - Use AWS Amplify to deploy your app. - Make code changes and re-deploy your app.\nPre-requisite Doing labs with the Chrome or Firefox browsers.\nYour AWS account.\nDownload and install Visual Studio Code\nCreate a Github account\nInstall Git on your computer and add SSH keys to your GitHub account.\nDownload and install NodeJS\nCreate a new React App Launch Visual Studio Code (VSC). Log in to VSC with your GitHub account. Select New Terminal from the Terminal menu. Use the command (The new React app is called aws-react-hosting): npx create-react-app aws-react-hosting The project is created so now let we try to open the folder in the VSC here. cd aws-react-hosting So to run the React app, we can type: npm start It is now up and running on localhost right here (localhost:3000) The next step is to create a new Github repo.\nCreate a new Github repo Go to Create a new repository We will need to give this a name, let\u0026rsquo;s just call this aws-react-hosting same as the folder name. Click on the Create repository button.\nAll right, so now it is created so these are some of the comamnds that we can use to run.\nUpload your React Native app to the Github repo Go back to VSC. The VSC is navigating to the React folder (aws-react-hosting folder) Let\u0026rsquo;s try to open up a new terminal window:\n- To open another terminal window, click the + Developer Command Prompt button in the terminal window.\n- As we can see, VSC has two terminal windows: node running the React app and bash we just created. We just want to push all of the necesary code locally onto the Github repo. So to do that, you just need to run:\ngit init\rgit add .\rgit commit -m \u0026#34;added react app\u0026#34;\rgit branch -M main\rgit remote add origin \u0026lt;https://..... git\u0026gt;\rgit push -u origin main The URL endpoint \u0026lt;https://\u0026hellip;.. git\u0026gt;: you copy it from your GitHub repo.\nIt will push all of the files to the Github repo. That\u0026rsquo;s done.\nGoing back to your Github repo. Refresh this and you can see that all of the important files are uploaded here excluding the node modules. "
+},
+{
+	"uri": "/3-deploy-to-amplify/",
+	"title": "Deploy a React app to AWS Amplify",
+	"tags": [],
+	"description": "",
+	"content": "Deploy your React app with AWS Amplify Go to the AWS Amplify console, click on the Get started. Choose Get started Amplify Hosting. Choose GitHub and click Continue. Click Installing \u0026amp; Authorizing Click Authorize\u0026hellip; Enter your GitHub password or authentication code now. Choose the repository and main branch you created earlier, then select Next. Accept the default build settings and select Next. Review the final details and choose Save and deploy. AWS Amplify will now build your source code and deploy your app at https://...amplifyapp.com. 11. When the build is not finished, select the thumbnail to see your web app as displayed in the image below. 12. Once the build completes, click on the URL to see our web app up and running live. To share the URL and then everyone will see this app.\nAutomatically deploy code changes Next, we\u0026rsquo;ll make some changes to the app\u0026rsquo;s text and see if it automatically tries to deploy the change based on the changes we made.\nOpen up this source folder and look for the App.js file.\nLet us simply adjust this to How to Deploy React App to AWS Amplify? at line 10. Save it and check with our local host. It has changed.\nNow we want to push the changes to our Github repo.\ngit add .\rgit commit -m \u0026#34;updated text\u0026#34;\rgit push origin main So the changes have been pushed to the Github repository. Then we see Amplify automatically start a new build.\nGo to the Amplify console, you\u0026rsquo;ll observe that it automatically starts a new build: When the build is finished, click the URL to see our updated app. "
+},
+{
+	"uri": "/4-cleanup/",
+	"title": "Clean up resource",
+	"tags": [],
+	"description": "",
+	"content": "To delete the resource we created during this lab, we will do the following.\nGo to the AWS Amplify console:\nClick on All apps Click on aws-react-hosting Click on Actions Click on Delete app. Enter delete and then press Delete.\n"
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
